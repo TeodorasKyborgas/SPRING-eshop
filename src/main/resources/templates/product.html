@@ -5,5 +5,18 @@
 </head>
 <body>
 <h3> Creation of product </h3>
+<form method="post" th:action="@{/products/create}" th:object="${product}">
+
+    <label> Name: </label>
+    <input type="text" placeholder="product name" th:field="*{name}"> <br/>
+
+    <label> Price: </label>
+    <input type="text" placeholder="product price" th:field="*{price}"> <br/>
+
+    <label> Amount: </label>
+    <input type="text" placeholder="product amount" th:field="*{amount}"> <br/>
+
+    <button type="submit">Prideti</button>
+</form>
 </body>
 </html>
