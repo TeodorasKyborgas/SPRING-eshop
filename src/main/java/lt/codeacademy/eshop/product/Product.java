@@ -1,7 +1,9 @@
 package lt.codeacademy.eshop.product;
 
+
 import lombok.*;
 
+@Builder
 @Getter
 @Setter
 @AllArgsConstructor
