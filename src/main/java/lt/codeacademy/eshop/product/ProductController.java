@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class ProductController {
 
@@ -20,7 +22,8 @@ public class ProductController {
     @GetMapping(HttpEndpoints.PRODUCTS_CREATE)
     public String sayHelloToCustomer(Model model){
         model.addAttribute("product", new Product());
-        return "product";
+        return "product/product";
+
     }
     @PostMapping(HttpEndpoints.PRODUCTS_CREATE)
     public String crateAProduct(Product product){
@@ -30,4 +33,12 @@ public class ProductController {
         productService.getAllProducts().forEach(System.out::println);
         return "welcome/welcome";
     }
+    @GetMapping(HttpEndpoints.PRODUCTS)
+    public String getProducts(Model model) {
+        final List<Product> allProducts = productService.getAllProducts();
+        model.addAttribute("productList", allProducts);
+        return "product/products";
+    }
+
+
 }
