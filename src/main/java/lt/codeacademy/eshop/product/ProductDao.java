@@ -13,7 +13,8 @@ public class ProductDao {
         products.add(product);
 
     }
-    private List<Product> getAll(){
+    private List<Product> getAll() {
+
         return products;
     }
 }

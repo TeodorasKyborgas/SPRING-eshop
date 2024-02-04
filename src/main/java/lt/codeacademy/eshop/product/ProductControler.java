@@ -1,8 +1,5 @@
-package lt.codeacademy.eshop;
+package lt.codeacademy.eshop.product;
 
-
-import lt.codeacademy.eshop.product.Product;
-import lt.codeacademy.eshop.product.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,12 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class FirstControler {
+public class ProductControler {
 
     private ProductService productService;
 
     @Autowired
-    public FirstControler(ProductService productService){
+    public ProductControler(ProductService productService){
         this.productService = productService;
     }
 
@@ -26,6 +23,9 @@ public class FirstControler {
     }
     @PostMapping("/products/create")
     public String crateAProduct(Product product){
-        return "hello";
+        productService.saveProduct(product);
+        System.out.println("Currently in database");
+        productService.getAllProducts().forEach(System.out::println);
+        return "welcome/welcome";
     }
 }

@@ -3,6 +3,8 @@ package lt.codeacademy.eshop.product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductService {
     private ProductDao productDao;
@@ -14,5 +16,10 @@ public class ProductService {
 
     public void saveProduct(Product product){
         productDao.save(product);
+    }
+
+
+    public List<Product> getAllProducts() {
+        return getAllProducts();
     }
 }
