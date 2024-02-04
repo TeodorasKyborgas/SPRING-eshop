@@ -11,15 +11,17 @@ public class ProductService {
 
     @Autowired
     public ProductService(ProductDao productDao){
+
         this.productDao = productDao;
     }
 
     public void saveProduct(Product product){
+
         productDao.save(product);
     }
 
 
     public List<Product> getAllProducts() {
-        return getAllProducts();
+        return productDao.getAll();
     }
 }

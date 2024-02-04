@@ -1,8 +1,13 @@
+.docker/
+
+.mvn/wrapper/maven-wrapper.jar
+
 HELP.md
-target/
+eshop/target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+.DS_Store
 
 ### STS ###
 .apt_generated
