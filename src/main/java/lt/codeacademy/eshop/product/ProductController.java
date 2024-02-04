@@ -1,5 +1,6 @@
 package lt.codeacademy.eshop.product;
 
+import lt.codeacademy.eshop.HttpEndpoints;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,22 +8,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class ProductControler {
+public class ProductController {
 
     private ProductService productService;
 
     @Autowired
-    public ProductControler(ProductService productService){
+    public ProductController(ProductService productService){
         this.productService = productService;
     }
 
-    @GetMapping("/products/create")
+    @GetMapping(HttpEndpoints.PRODUCTS_CREATE)
     public String sayHelloToCustomer(Model model){
         model.addAttribute("product", new Product());
         return "product";
     }
-    @PostMapping("/products/create")
+    @PostMapping(HttpEndpoints.PRODUCTS_CREATE)
     public String crateAProduct(Product product){
+
         productService.saveProduct(product);
         System.out.println("Currently in database");
         productService.getAllProducts().forEach(System.out::println);
