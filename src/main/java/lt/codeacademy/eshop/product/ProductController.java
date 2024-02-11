@@ -45,9 +45,8 @@ public class ProductController {
     public String createAProduct(Model model, Product product) {
 
         productService.saveProduct(product);
-        System.out.println("Currently in database");
-        productService.getAllProducts().forEach(System.out::println);
-        return getProducts(model);
+        model.addAttribute("message", "Product added successfully!");
+        return "product/product";
 
     }
 
