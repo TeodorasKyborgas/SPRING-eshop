@@ -14,7 +14,6 @@ spring:
     init:
       schema-locations: classpath:db/ddl-scripts.sql
       data-locations: classpath:db/dml-scripts.sql
-
   jpa:
     hibernate:
       ddl-auto: none
@@ -22,7 +21,10 @@ spring:
     properties:
       hibernate:
         format_sql: true
-
+  data:
+    web:
+      pageable:
+        default-page-size: 3
 logging:
   level:
     lt:
