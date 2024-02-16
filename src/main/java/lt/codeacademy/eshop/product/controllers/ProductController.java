@@ -30,9 +30,10 @@ public class ProductController {
     }
 
     @GetMapping(HttpEndpoints.PRODUCTS_CREATE)
-    public String getFormForCreate(Model model) {
+    public String getFormForCreate(Model model, String message) {
         log.atInfo().log("-==== get product on create ====-");
         model.addAttribute("product", Product.builder().build());
+        model.addAttribute("message", message);
 
         return "product/product";
     }
@@ -48,9 +49,8 @@ public class ProductController {
     @PostMapping(HttpEndpoints.PRODUCTS_CREATE)
     public String createAProduct(Model model, Product product) {
         productService.saveProduct(product);
-        model.addAttribute("message", "Product added successfully!");
 
-        return "redirect:/products/create";
+        return "redirect:/products/create?message=You added new product, thanks";
     }
 
     @PostMapping(HttpEndpoints.PRODUCTS_UPDATE)
