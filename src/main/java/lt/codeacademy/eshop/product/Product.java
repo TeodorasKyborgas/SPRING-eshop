@@ -1,8 +1,6 @@
 package lt.codeacademy.eshop.product;
 
-
 import lombok.*;
-
 import java.util.UUID;
 
 @Builder
