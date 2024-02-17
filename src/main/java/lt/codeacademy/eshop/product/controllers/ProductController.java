@@ -1,11 +1,12 @@
 package lt.codeacademy.eshop.product.controllers;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import lt.codeacademy.eshop.HttpEndpoints;
+import lt.codeacademy.eshop.helper.MessageService;
 import lt.codeacademy.eshop.product.Product;
 import lt.codeacademy.eshop.product.dto.ProductDto;
 import lt.codeacademy.eshop.product.service.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -20,20 +21,17 @@ import java.util.UUID;
 
 @Controller
 @Log4j2
+@RequiredArgsConstructor
 public class ProductController {
 
-    private ProductService productService;
-
-    @Autowired
-    public ProductController(ProductService productService) {
-        this.productService = productService;
-    }
+    private final ProductService productService;
+    private final MessageService messageService;
 
     @GetMapping(HttpEndpoints.PRODUCTS_CREATE)
     public String getFormForCreate(Model model, String message) {
         log.atInfo().log("-==== get product on create ====-");
         model.addAttribute("product", Product.builder().build());
-        model.addAttribute("message", message);
+        model.addAttribute("message", messageService.getTranslatedMessage(message));
 
         return "product/product";
     }
@@ -50,7 +48,7 @@ public class ProductController {
     public String createAProduct(Model model, Product product) {
         productService.saveProduct(product);
 
-        return "redirect:/products/create?message=You added new product, thanks";
+        return "redirect:/products/create?message=product.create.message.success";
     }
 
     @PostMapping(HttpEndpoints.PRODUCTS_UPDATE)
