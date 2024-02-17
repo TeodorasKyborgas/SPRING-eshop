@@ -7,6 +7,7 @@ import lt.codeacademy.eshop.HttpEndpoints;
 import lt.codeacademy.eshop.helper.MessageService;
 import lt.codeacademy.eshop.product.Product;
 import lt.codeacademy.eshop.product.dto.ProductDto;
+import lt.codeacademy.eshop.product.exception.ProductNotFoundException;
 import lt.codeacademy.eshop.product.service.ProductService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,6 +16,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -77,5 +79,10 @@ public class ProductController {
         productService.deleteProductByUUID(productId);
 
         return getProducts(model, pageable);
+    }
+    @ExceptionHandler
+    public String productNotFound(ProductNotFoundException e, Model model) {
+        model.addAttribute("productUUID", e.getProductUUID());
+        return "product/error/productNotFound";
     }
 }
