@@ -15,4 +15,12 @@ public class ProductMapper {
                 product.getAmount()
         );
     }
+    public Product fromProductDto(ProductDto productDto) {
+        return Product.builder()
+                .productId(productDto.getProductId())
+                .price(productDto.getPrice())
+                .name(productDto.getName())
+                .amount(productDto.getAmount())
+                .build();
+    }
 }
