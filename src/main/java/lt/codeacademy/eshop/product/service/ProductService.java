@@ -1,7 +1,7 @@
 package lt.codeacademy.eshop.product.service;
 
+import jakarta.transaction.Transactional;
 import lt.codeacademy.eshop.mappers.ProductMapper;
-import lt.codeacademy.eshop.product.Product;
 import lt.codeacademy.eshop.product.dao.ProductDao;
 import lt.codeacademy.eshop.product.dto.ProductDto;
 import lt.codeacademy.eshop.product.exception.ProductNotFoundException;
@@ -29,8 +29,8 @@ public class ProductService {
         productDao.save(product);
     }
 
-    public void updateProduct(Product product) {
-        productDao.update(product);
+    public void updateProduct(ProductDto productDto) {
+        productDao.update(mapper.fromProductDto(productDto));
     }
 
     public Page<ProductDto> getAllProductsPage(Pageable pageable) {
@@ -42,7 +42,7 @@ public class ProductService {
                 .map(mapper::toProductDto)
                 .orElseThrow(() -> new ProductNotFoundException(id));
     }
-
+@Transactional
     public void deleteProductByUUID(UUID id) {
         productDao.deleteProductByUUID(id);
     }
