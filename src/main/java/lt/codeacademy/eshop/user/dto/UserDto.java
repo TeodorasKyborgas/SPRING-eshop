@@ -2,8 +2,9 @@ package lt.codeacademy.eshop.user.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import lt.codeacademy.eshop.validation.PhoneNumber;
 import lombok.*;
+import lt.codeacademy.eshop.validation.PhoneNumber;
+import lt.codeacademy.eshop.validation.RepeatPassword;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -11,6 +12,8 @@ import lombok.*;
 @Setter
 @ToString
 @Builder
+@RepeatPassword
+
 
 public class UserDto {
 
@@ -23,6 +26,9 @@ public class UserDto {
     private String email;
     @NotBlank
     private String password;
+    @NotBlank
+    private String repeatPassword;
+
     @NotBlank
     private String zipCode;
     @NotBlank
