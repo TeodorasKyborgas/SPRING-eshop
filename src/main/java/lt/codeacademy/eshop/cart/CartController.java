@@ -19,8 +19,7 @@ public class CartController {
     }
 
     @GetMapping("/add")
-    public String addToCart(Model model) {
-        model.addAttribute("cartSession", "Labas");
+    public String openCart() {
 
         return "redirect:/cart";
     }
