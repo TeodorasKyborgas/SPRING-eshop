@@ -31,8 +31,6 @@ public class ProductService {
                 .name("NaN")
                 .build();
 
-        productCategoryRepository.save(productCategory);
-
         product.getProductCategories().add(productCategory);
         productDao.save(product);
     }
