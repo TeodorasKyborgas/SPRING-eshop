@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head th:replace="fragments/layout :: head"></head>
+<head th:replace="~{fragments/layout :: head}"></head>
 <body>
-<div class="container">
+<main class="container">
     <h2 th:text="#{cart.title}">My Cart</h2>
+
     <table class="table table-striped">
         <thead>
         <tr>
@@ -26,7 +27,8 @@
     </table>
 
     <button class="btn btn-primary" type="submit" th:text="#{cart.order}"></button>
+</main>
+<footer th:replace="~{fragments/layout :: footer}">placeholder</footer>
 
-</div>
 </body>
 </html>
