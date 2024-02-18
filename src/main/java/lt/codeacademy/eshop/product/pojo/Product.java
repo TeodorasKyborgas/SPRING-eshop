@@ -1,11 +1,10 @@
 package lt.codeacademy.eshop.product.pojo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
+import java.util.Set;
 import java.util.UUID;
 
 @Builder
@@ -17,11 +16,14 @@ import java.util.UUID;
 @Entity
 public class Product {
 
-    @Id()
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private UUID productId;
     private String name;
-    private double price;
+    private BigDecimal price;
     private int amount;
+
+    @ManyToMany
+    private Set<ProductCategory> productCategories;
 }
