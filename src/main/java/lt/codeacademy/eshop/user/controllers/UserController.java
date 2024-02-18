@@ -26,7 +26,7 @@ public class UserController {
         System.out.println("got a successful registration request");
         System.out.println(userDto);
 
-        return "redirect:/user/create";
+        return "redirect:/users/create";
     }
 
 }
