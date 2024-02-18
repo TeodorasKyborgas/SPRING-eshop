@@ -1,11 +1,14 @@
 package lt.codeacademy.eshop.product.service;
 
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import lt.codeacademy.eshop.mappers.ProductMapper;
+import lt.codeacademy.eshop.product.dao.ProductCategoryRepository;
 import lt.codeacademy.eshop.product.dao.ProductDao;
 import lt.codeacademy.eshop.product.dto.ProductDto;
 import lt.codeacademy.eshop.product.exception.ProductNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
+import lt.codeacademy.eshop.product.pojo.Product;
+import lt.codeacademy.eshop.product.pojo.ProductCategory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -13,19 +16,24 @@ import org.springframework.stereotype.Service;
 import java.util.UUID;
 
 @Service
+@RequiredArgsConstructor
 public class ProductService {
 
-    private ProductDao productDao;
-    private ProductMapper mapper;
+    private final ProductDao productDao;
+    private final ProductCategoryRepository productCategoryRepository;
+    private final ProductMapper mapper;
 
-    @Autowired
-    public ProductService(ProductDao productDao, ProductMapper mapper) {
-        this.productDao = productDao;
-        this.mapper = mapper;
-    }
-
+    @Transactional
     public void saveProduct(ProductDto productDto) {
-        var product = mapper.fromProductDto(productDto);
+        final Product product = mapper.fromProductDto(productDto);
+
+        final ProductCategory productCategory = ProductCategory.builder()
+                .name("NaN")
+                .build();
+
+        productCategoryRepository.save(productCategory);
+
+        product.getProductCategories().add(productCategory);
         productDao.save(product);
     }
 
