@@ -1,5 +1,6 @@
-package lt.codeacademy.eshop.mappers;
+package lt.codeacademy.eshop.product.mappers;
 
+import lt.codeacademy.eshop.common.mapper.Mapper;
 import lt.codeacademy.eshop.product.dto.ProductDto;
 import lt.codeacademy.eshop.product.pojo.Product;
 import org.springframework.stereotype.Component;
@@ -7,18 +8,18 @@ import org.springframework.stereotype.Component;
 import java.util.HashSet;
 
 @Component
-public class ProductMapper {
+public class ProductMapper implements Mapper<Product, ProductDto> {
 
-    public ProductDto toProductDto(Product product) {
-        return new ProductDto(
-                product.getProductId(),
-                product.getName(),
-                product.getPrice(),
-                product.getAmount()
-
-        );
+    public ProductDto toDto(Product product) {
+        return ProductDto.builder()
+                .productId(product.getProductId())
+                .name(product.getName())
+                .price(product.getPrice())
+                .amount(product.getAmount())
+                .build();
     }
-    public Product fromProductDto(ProductDto productDto) {
+
+    public Product fromDto(ProductDto productDto) {
         return Product.builder()
                 .productId(productDto.getProductId())
                 .price(productDto.getPrice())
@@ -28,3 +29,4 @@ public class ProductMapper {
                 .build();
     }
 }
+

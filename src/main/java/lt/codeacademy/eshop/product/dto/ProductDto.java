@@ -24,4 +24,7 @@ public class ProductDto {
     @Positive(message = "{productdto.positive}")
     @NotNull
     private int amount;
+
+    @NotNull
+    private Long categoryId;
 }
