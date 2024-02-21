@@ -42,7 +42,7 @@ public class CartController {
 
         sessionStatus.setComplete();
 
-        redirectAttributes.addAttribute("successMessage", "Order created successfully!");
+        redirectAttributes.addFlashAttribute("successMessageFlashAttr", "Order created successfully!");
 
         return "redirect:/products";
     }

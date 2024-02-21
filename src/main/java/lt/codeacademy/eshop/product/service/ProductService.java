@@ -1,17 +1,17 @@
 package lt.codeacademy.eshop.product.service;
 
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lt.codeacademy.eshop.product.mappers.ProductMapper;
 import lt.codeacademy.eshop.product.dao.ProductCategoryRepository;
 import lt.codeacademy.eshop.product.dao.ProductDao;
 import lt.codeacademy.eshop.product.dto.ProductDto;
 import lt.codeacademy.eshop.product.exception.ProductNotFoundException;
-import lt.codeacademy.eshop.product.mappers.ProductMapper;
 import lt.codeacademy.eshop.product.pojo.Product;
 import lt.codeacademy.eshop.product.pojo.ProductCategory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
