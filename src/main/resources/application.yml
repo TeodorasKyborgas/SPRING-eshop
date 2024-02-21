@@ -28,11 +28,11 @@ logging:
         eshop:
           config: DEBUG
           product: INFO
-          server:
-            error:
-              whitelabel:
-                enabled: false
-            servlet:
-              session:
-                # tracking mode will store/show session only in cookie
-                tracking-modes: cookie
+server:
+  error:
+    whitelabel:
+      enabled: false
+  servlet:
+    session:
+      # tracking mode will store/show session only in cookie
+      tracking-modes: cookie
