@@ -32,7 +32,7 @@
             <span th:text="#{products.field.price}">Price</span>
           </a>
         </th>
-        <th class="col-md-2">
+        <th class="col-md-auto">
           <a th:with="directionVariable=${productList.sort.getOrderFor('amount')?.direction}"
              th:href="@{/products(page=${productList.getPageable().getPageNumber()},sort='amount,' + ${directionVariable?.name eq 'ASC' ? 'DESC' : 'ASC'})}">
             <i th:class="'fa ' + ${directionVariable?.name eq 'ASC' ? 'fa-arrow-up' : 'fa-arrow-down'}"
@@ -49,10 +49,12 @@
         <td><a th:href="@{/products/{productId}/update(productId=${product.productId})}" th:text="${product.name}"></a></td>
         <td th:text="${product.price}">a</td>
         <td th:text="${product.amount}">a</td>
-        <td>
-          <button class="btn btn-primary">
-            <i class="fa-solid fa-cart-plus"></i>
-          </button>
+        <td class="d-flex gap-2">
+          <form method="POST" th:action="@{/cart/{productId}(productId=${product.productId})}">
+            <button class="btn btn-primary">
+              <i class="fa-solid fa-cart-plus"></i>
+            </button>
+          </form>
           <a
                   th:href="@{/products/{productId}/delete(productId=${product.productId})}"
                   th:text="#{products.delete}"
