@@ -1,9 +1,11 @@
 package lt.codeacademy.eshop.security.config;
 
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -14,7 +16,12 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/login/**").permitAll()
+                        .requestMatchers(
+                                "/",
+                                "/products",
+                                "/cart/**",
+                                "/users/**"
+                        ).permitAll()
                         .anyRequest()
                         .authenticated())
                 .formLogin(loginConfigure -> loginConfigure
@@ -25,7 +32,15 @@ public class SecurityConfig {
                         .usernameParameter("loginEmail")    //The HTTP parameter to look for the username
                         .passwordParameter("loginPassword") //The HTTP parameter to look for the password
                 )
-
                 .build();
+    }
+
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return web -> web.ignoring()
+                .requestMatchers(
+                        PathRequest.toH2Console(),
+                        PathRequest.toStaticResources().atCommonLocations()
+                );
     }
 }

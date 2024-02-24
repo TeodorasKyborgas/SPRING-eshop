@@ -9,7 +9,6 @@ spring:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:mem:eshop_db
     username: sa
-    password: password
   sql:
     init:
       schema-locations: classpath:db/ddl-scripts.sql
@@ -21,10 +20,10 @@ spring:
     properties:
       hibernate:
         format_sql: true
-    security:
-      user:
-        name: admin@eshop.lt
-        password: admin
+  security:
+    user:
+      name: admin@eshop.lt
+      password: admin
 logging:
   level:
     lt:
