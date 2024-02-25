@@ -1,9 +1,10 @@
 package lt.codeacademy.eshop.user.repository;
 
-import java.util.Optional;
-
 import lt.codeacademy.eshop.user.pojo.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
