@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
 
     private final UsersService usersService;
+    private final UsersRegistrationService usersRegistrationService;
     @GetMapping("/create")
     public String getUserForm(Model model) {
         model.addAttribute("userDto", UserDto.builder().build());
@@ -31,7 +32,7 @@ public class UserController {
         if (errors.hasErrors()) {
             return "user/user";
         }
-        usersService.register(userDto);
+        usersRegistrationService.register(userDto);
 
         return "redirect:/users/create";
     }
