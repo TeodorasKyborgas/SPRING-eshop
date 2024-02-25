@@ -38,11 +38,15 @@ CREATE TABLE authority
 (
     id          BIGINT primary key auto_increment,
     name        VARCHAR(100) NOT NULL,
-    description VARCHAR(2000)
+    description VARCHAR(2000),
+    CONSTRAINT authority_key UNIQUE (name)
 );
 
 CREATE TABLE users_authorities
 (
     user_id      BIGINT,
-    authority_id BIGINT
+    authorities_id BIGINT,
+    CONSTRAINT users_authorities_key UNIQUE (user_id, authorities_id),
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (authorities_id) REFERENCES authority(id)
 );
