@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import lt.codeacademy.eshop.user.dto.UserDto;
+import lt.codeacademy.eshop.user.service.UsersRegistrationService;
 import lt.codeacademy.eshop.user.service.UsersService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
