@@ -1,6 +1,5 @@
 package lt.codeacademy.eshop.product.mappers;
 
-import lt.codeacademy.eshop.product.ProductCategoryMapper;
 import lt.codeacademy.eshop.product.pojo.ProductCategory;
 import org.junit.jupiter.api.Test;
 

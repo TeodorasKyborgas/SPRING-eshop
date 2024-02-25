@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Set;
 import java.util.UUID;
+
 @Controller
 @Slf4j
 @RequiredArgsConstructor
@@ -52,6 +53,7 @@ public class ProductController {
 
         return "product/product";
     }
+
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping(HttpEndpoints.PRODUCTS_CREATE)
     public String createAProduct(Model model, @Valid ProductDto product, BindingResult errors) {
@@ -64,6 +66,7 @@ public class ProductController {
         return "redirect:/products/create?message=product.create.message.success";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping(HttpEndpoints.PRODUCTS_UPDATE)
     public String updateProduct(Model model, Pageable pageable, ProductDto productDto, @PathVariable UUID productId) {
         productService.updateProduct(productDto);

@@ -1,4 +1,4 @@
-package lt.codeacademy.eshop.product;
+package lt.codeacademy.eshop.product.mappers;
 
 import lt.codeacademy.eshop.common.mapper.Mapper;
 import lt.codeacademy.eshop.product.dto.ProductDto;
@@ -29,4 +29,3 @@ public class ProductMapper implements Mapper<Product, ProductDto> {
                 .build();
     }
 }
-

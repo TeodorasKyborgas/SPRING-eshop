@@ -1,7 +1,7 @@
 package lt.codeacademy.eshop.product.service;
 
 import lombok.RequiredArgsConstructor;
-import lt.codeacademy.eshop.product.ProductMapper;
+import lt.codeacademy.eshop.product.mappers.ProductMapper;
 import lt.codeacademy.eshop.product.dao.ProductCategoryRepository;
 import lt.codeacademy.eshop.product.dao.ProductDao;
 import lt.codeacademy.eshop.product.dto.ProductDto;
@@ -29,6 +29,7 @@ public class ProductService {
         final ProductCategory productCategory = productCategoryRepository.getReferenceById(productDto.getCategoryId());
 
         product.getProductCategories().add(productCategory);
+
         productDao.save(product);
     }
 
@@ -45,7 +46,8 @@ public class ProductService {
                 .map(mapper::toDto)
                 .orElseThrow(() -> new ProductNotFoundException(id));
     }
-@Transactional
+
+    @Transactional
     public void deleteProductByUUID(UUID id) {
         productDao.deleteProductByUUID(id);
     }

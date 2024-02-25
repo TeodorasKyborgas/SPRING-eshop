@@ -5,11 +5,10 @@
 <body>
 <nav th:replace="~{fragments/layout :: nav('')}">placeholder</nav>
 <main class="container">
-  <img style="width: 100%" th:src="@{/images/errors/404.png}">
+  <img style="width: 100%" th:src="@{/images/errors/404.jpg}">
   <h1 th:text="'Page not found ' + ${path} + ', my custom attribute: ' + ${myCustomAttribute}"></h1>
   <h2 th:text="${timestamp}"></h2>
 </main>
 <footer th:replace="~{fragments/layout :: footer}">placeholder</footer>
-
 </body>
 </html>

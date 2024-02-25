@@ -23,8 +23,9 @@ insert into PRODUCT_PRODUCT_CATEGORIES(product_id, product_categories_id)
 VALUES (1, 2),
        (2, 1);
 
-VALUES VALUES ('Admin', 'Admin', 'admin@eshop.lt', '$2a$10$FBByjrD2r.nVxQTd0Nc/cONDD3MtLXi8ozq9PIG7em/4mjgExnRpe', 'LT-0001', '+37060012345'),
-    ('User', 'User', 'user@eshop.lt', '$2a$10$FBByjrD2r.nVxQTd0Nc/cONDD3MtLXi8ozq9PIG7em/4mjgExnRpe', 'LT-0002', '+37060012346');
+INSERT INTO users(name, surname, email, password, zip_code, phone_number)
+VALUES ('Admin', 'Admin', 'admin@eshop.lt', '$2a$10$FBByjrD2r.nVxQTd0Nc/cONDD3MtLXi8ozq9PIG7em/4mjgExnRpe', 'LT-0001', '+37060012345'),
+       ('User', 'User', 'user@eshop.lt', '$2a$10$FBByjrD2r.nVxQTd0Nc/cONDD3MtLXi8ozq9PIG7em/4mjgExnRpe', 'LT-0002', '+37060012346');
 
 INSERT INTO authority(name, description)
 VALUES ('ADMIN', NULL),

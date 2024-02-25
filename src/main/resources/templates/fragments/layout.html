@@ -17,7 +17,8 @@
 <footer th:fragment="footer">
     <p class="text-center" th:text="#{footer.message}"></p>
 </footer>
-<nav th:fragment="nav(page)" class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+<nav th:fragment="nav(page)" class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" th:href="@{/}">EShop</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -53,11 +54,12 @@
             </ul>
         </div>
     </div>
-    <div sec:authorize="!isAuthenticated()">
+
+    <div class="d-flex justify-content-end gap-4 me-4" sec:authorize="!isAuthenticated()">
         <a class="btn btn-light" th:href="@{/login}" th:text="'Login'">Login</a>
     </div>
     <div class="d-flex justify-content-end gap-4 me-4" style="width: 100%" sec:authorize="isAuthenticated()">
-        <div class="d-flex justify-content-end gap-4 me-4" sec:authorize="!isAuthenticated()">
+        <span sec:authentication="principal.fullName"></span>
         <a class="btn btn-light" th:href="@{/logout}" th:text="'Logout'">Logout</a>
     </div>
 </nav>

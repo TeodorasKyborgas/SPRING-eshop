@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.InitBinder;
 
 @ControllerAdvice
-
 public class ApplicationControllerAdvice {
 
     @ExceptionHandler
@@ -17,6 +16,7 @@ public class ApplicationControllerAdvice {
         model.addAttribute("productUUID", e.getProductUUID());
         return "product/error/productNotFound";
     }
+
     @ExceptionHandler
     public String otherErrors(Exception e) {
         throw new RuntimeException(e);
@@ -27,5 +27,4 @@ public class ApplicationControllerAdvice {
         StringTrimmerEditor trimmerEditor = new StringTrimmerEditor(true);
         webDataBinder.registerCustomEditor(String.class, trimmerEditor);
     }
-
 }

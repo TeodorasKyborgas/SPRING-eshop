@@ -1,13 +1,13 @@
 package lt.codeacademy.eshop.product.service;
 
-import java.util.Set;
-import java.util.stream.Collectors;
-
 import lombok.RequiredArgsConstructor;
 import lt.codeacademy.eshop.product.dao.ProductCategoryRepository;
 import lt.codeacademy.eshop.product.dto.ProductCategoryDto;
-import lt.codeacademy.eshop.product.ProductCategoryMapper;
+import lt.codeacademy.eshop.product.mappers.ProductCategoryMapper;
 import org.springframework.stereotype.Service;
+
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor

@@ -41,6 +41,7 @@ public class ApplicationConfig implements WebMvcConfigurer {
 
         return source;
     }
+
     @Bean
     @Override
     public LocalValidatorFactoryBean getValidator() {
@@ -58,6 +59,5 @@ public class ApplicationConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/login").setViewName("security/login");
     }
-
 
 }

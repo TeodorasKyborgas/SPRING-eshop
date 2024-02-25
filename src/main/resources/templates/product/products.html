@@ -6,22 +6,21 @@
 <body>
 <nav th:replace="~{fragments/layout :: nav('products')}">placeholder</nav>
 <main>
-
   <div th:if="${#lists.isEmpty(productList)}" th:text="#{products.empty}">Product list is empty</div>
   <div th:if="${not #lists.isEmpty(productList)}" class="container">
 
     <div class="alert alert-success" role="alert"
          th:if="${successMessageFlashAttr ne null}" th:text="${successMessageFlashAttr}">
-      A success alert—check it out!
+      A simple success alert—check it out!
     </div>
 
     <span th:text="#{products.total(${productList.totalElements})}">Total elements</span>
     <br/><span th:text="#{products.total.pages(${productList.totalPages})}">Total pages</span>
 
-    <table class="table table-striped">
+    <table class="table table-dark table-hover">
       <thead>
       <tr>
-        <th class="col-md-5">
+        <th class="col-md-auto">
           <a th:with="directionVariable=${productList.sort.getOrderFor('name')?.direction}"
              th:href="@{/products(page=${productList.getPageable().getPageNumber()},sort='name,' + ${directionVariable?.name eq 'ASC' ? 'DESC' : 'ASC'} + ',ignorecase')}">
             <i th:class="'fa ' + ${directionVariable?.name eq 'ASC'? 'fa-arrow-up' : 'fa-arrow-down'}"
@@ -36,10 +35,10 @@
             <i th:class="'fa ' + ${directionVariable?.name eq 'ASC' ? 'fa-arrow-up' : 'fa-arrow-down'}"
                aria-hidden="true"
                th:if="${productList.sort.getOrderFor('price') ne null}"></i>
-            <span th:text="#{products.field.price}">Price</span>
+            <span th:text="#{products.field.price} + ' (' + ${modelCurrencyAttr} + ')'">Price</span>
           </a>
         </th>
-        <th class="col-md-auto">
+        <th class="col-md-2">
           <a th:with="directionVariable=${productList.sort.getOrderFor('amount')?.direction}"
              th:href="@{/products(page=${productList.getPageable().getPageNumber()},sort='amount,' + ${directionVariable?.name eq 'ASC' ? 'DESC' : 'ASC'})}">
             <i th:class="'fa ' + ${directionVariable?.name eq 'ASC' ? 'fa-arrow-up' : 'fa-arrow-down'}"
@@ -48,7 +47,7 @@
             <span th:text="#{products.field.amount}">Amount</span>
           </a>
         </th>
-        <th></th>  <!-- empty row for buttons (edit, delete, etc)-->
+        <th class="col-md-2"></th>  <!-- empty row for buttons (edit, delete, etc)-->
       </tr>
       </thead>
       <tbody>

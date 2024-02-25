@@ -11,6 +11,6 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @Getter
 public class ProductNotFoundException extends RuntimeException {
-    private final UUID productUUID;
 
+    private final UUID productUUID;
 }

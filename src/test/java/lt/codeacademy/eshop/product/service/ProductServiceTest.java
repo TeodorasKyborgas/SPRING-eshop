@@ -1,9 +1,9 @@
 package lt.codeacademy.eshop.product.service;
 
-import lt.codeacademy.eshop.product.ProductMapper;
 import lt.codeacademy.eshop.product.dao.ProductCategoryRepository;
 import lt.codeacademy.eshop.product.dao.ProductDao;
 import lt.codeacademy.eshop.product.dto.ProductDto;
+import lt.codeacademy.eshop.product.mappers.ProductMapper;
 import lt.codeacademy.eshop.product.pojo.Product;
 import lt.codeacademy.eshop.product.pojo.ProductCategory;
 import org.junit.jupiter.api.Test;
@@ -11,7 +11,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
 import java.math.BigDecimal;
 import java.util.UUID;
 
@@ -19,7 +18,6 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
 
 @ExtendWith(MockitoExtension.class)
 public class ProductServiceTest {
@@ -42,7 +40,6 @@ public class ProductServiceTest {
         var categoryId = 123L;
 
         var productDto = new ProductDto(productUUID, "strawberry", BigDecimal.valueOf(1.95), 1, categoryId);
-
         var product = new Product();
 
         when(productCategoryRepository.getReferenceById(any())).thenReturn(new ProductCategory());

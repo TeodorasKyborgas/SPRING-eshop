@@ -7,10 +7,14 @@ import org.springframework.context.NoSuchMessageException;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Component;
 
+/**
+ * This service component used only for message translating inside java
+ */
 @Component
 @RequiredArgsConstructor
 @Log4j2
 public class MessageService {
+
     private final MessageSource messageSource;
 
     public String getTranslatedMessage(String key) {
@@ -26,5 +30,4 @@ public class MessageService {
 
         return "";
     }
-
 }

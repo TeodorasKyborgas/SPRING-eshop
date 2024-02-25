@@ -22,6 +22,7 @@ public class PhoneNumberValidator implements ConstraintValidator<PhoneNumber, St
             return isValidPrefixLocal(value);
         }
     }
+
     private boolean isValidPrefixGlobal(final String phoneNumber) {
         return Objects.nonNull(phoneNumber) && phoneNumber.startsWith("+370") && phoneNumber.length() == 12;
     }

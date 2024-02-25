@@ -5,11 +5,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class WelcomeController {
-@GetMapping
-public String showWelcomePage() {
-return "welcome/welcome";
+
+    @GetMapping
+    public String showWelcomePage() {
+        return "welcome/welcome";
     }
-
-
-
 }

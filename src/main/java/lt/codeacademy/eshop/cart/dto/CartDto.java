@@ -9,6 +9,7 @@ import java.util.List;
 
 @Getter
 public class CartDto {
+
     private final List<CartItemDto> cartItems = new ArrayList<>();
 
     public void add(final ProductDto productDto) {
@@ -17,6 +18,7 @@ public class CartDto {
                 .quantity(1)
                 .build());
     }
+
     public BigDecimal getCartTotalPrice() {
         return cartItems.stream()
                 .map(CartItemDto::getTotalItemPrice)

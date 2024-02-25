@@ -22,10 +22,12 @@ public class UserController {
 
     private final UsersService usersService;
     private final UsersRegistrationService usersRegistrationService;
+
     @GetMapping("/create")
     public String getUserForm(Model model) {
         model.addAttribute("userDto", UserDto.builder().build());
         log.info("Got a GET /users/create");
+
         return "user/user";
     }
 
@@ -45,5 +47,4 @@ public class UserController {
 
         return "redirect:/users/create";
     }
-
 }

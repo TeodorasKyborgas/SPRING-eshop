@@ -24,6 +24,7 @@ public class NoSecurityConfig {
                 .cors(AbstractHttpConfigurer::disable)
                 .build();
     }
+
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
         return web -> web.ignoring()

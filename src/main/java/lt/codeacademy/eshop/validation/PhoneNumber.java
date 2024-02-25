@@ -18,6 +18,5 @@ public @interface PhoneNumber {
 
     Class<? extends Payload>[] payload() default {};
 
-
     PhoneNumberType numberType() default PhoneNumberType.GLOBAL;
 }

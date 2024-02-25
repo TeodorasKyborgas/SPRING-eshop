@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head th:replace="~{fragments/layout :: head(#{product.create.title})}"></head>
-<nav th:replace="~{fragments/layout :: nav('products/create')}">placeholder</nav>
 <body>
+<nav th:replace="~{fragments/layout :: nav('products/create')}">placeholder</nav>
 <main class="container">
     <h3 th:text="#{product.create.title}">Let's create a product:</h3>
     <div th:if="${message ne null AND message.length > 0}"
@@ -39,7 +38,6 @@
                 </select>
             </div>
         </div>
-        <br>
         <button class="btn btn-primary" type="submit" th:text="#{product.create.action}">LETS DO THIS</button>
     </form>
 </main>

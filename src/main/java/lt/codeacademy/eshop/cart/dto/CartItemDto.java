@@ -17,6 +17,7 @@ public class CartItemDto {
     public void incrementQuantity() {
         quantity++;
     }
+
     public BigDecimal getTotalItemPrice() {
         return CartItemCalculator.calculateTotal(this);
     }

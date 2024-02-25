@@ -1,6 +1,5 @@
 package lt.codeacademy.eshop.cart.controller;
 
-
 import lombok.RequiredArgsConstructor;
 import lt.codeacademy.eshop.cart.dto.CartDto;
 import lt.codeacademy.eshop.cart.service.CartService;
@@ -36,6 +35,7 @@ public class CartController {
 
         return "redirect:/products";
     }
+
     @PostMapping
     public String order(SessionStatus sessionStatus, RedirectAttributes redirectAttributes) {
         //TODO: save into DB or do other things with cart data

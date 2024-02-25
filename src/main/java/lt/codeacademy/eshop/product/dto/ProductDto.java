@@ -15,17 +15,14 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 public class ProductDto {
-
     private UUID productId;
     @NotBlank(message = "{productdto.name.notblank}")
     private String name;
     @Positive(message = "{productdto.positive}")
     private BigDecimal price;
-
     @Positive(message = "{productdto.positive}")
     @NotNull
     private int amount;
-
     @NotNull
     @Size
     private Long categoryId;

@@ -23,6 +23,7 @@ public class CartService {
                         () -> addProductToCart(productId, cart)
                 );
     }
+
     private Optional<CartItemDto> getCartItem(UUID productId, CartDto cart) {
         return cart.getCartItems().stream()
                 .filter(cartItemDto -> cartItemDto.getProductDto().getProductId().equals(productId))
@@ -31,7 +32,6 @@ public class CartService {
 
     private void addProductToCart(final UUID productId, final CartDto cart) {
         final ProductDto productDto = productService.getProductByUUID(productId);
-
         cart.add(productDto);
     }
 }

@@ -28,36 +28,37 @@ public class SecurityConfig {
 
     private final DataSource dataSource;
     private final UserDetailsService userDetailsService;
-  @Bean
-  public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-    return http
-      .authorizeHttpRequests(authorize -> authorize
-        .requestMatchers(
-          "/",
-            "/products/**",  // changed from /products to /products/** for test security in controller level
-          "/cart/**",
-            "/users/**",
-            "/error/**"
-        ).permitAll()
-        .anyRequest()
-        .authenticated())
-      .formLogin(loginConfigure -> loginConfigure
-        .permitAll()
-        .loginPage("/login")                //GET - the login form
-        .loginProcessingUrl("/login")       //Specifies the URL to validate the credentials.
-        .defaultSuccessUrl("/products", true)
-        .usernameParameter("loginEmail")    //The HTTP parameter to look for the username
-        .passwordParameter("loginPassword") //The HTTP parameter to look for the password
-      )
-            .logout(logoutConfigure -> logoutConfigure
-                    .logoutUrl("/logout")
-                    .logoutSuccessUrl("/")
-                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                    .permitAll()
-            )
-      .build();
 
-  }
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        return http
+                .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers(
+                                "/",
+                                "/products/**",  // changed from /products to /products/** for test security in controller level
+                                "/cart/**",
+                                "/users/**",
+                                "/error/**"
+                        ).permitAll()
+                        .anyRequest()
+                        .authenticated())
+                .formLogin(loginConfigure -> loginConfigure
+                        .permitAll()
+                        .loginPage("/login")                //GET - the login form
+                        .loginProcessingUrl("/login")       //Specifies the URL to validate the credentials.
+                        .defaultSuccessUrl("/products", true)
+                        .usernameParameter("loginEmail")    //The HTTP parameter to look for the username
+                        .passwordParameter("loginPassword") //The HTTP parameter to look for the password
+                )
+                .logout(logoutConfigure -> logoutConfigure
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/")
+                        .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                        .permitAll()
+                )
+                .build();
+    }
+
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
         return web -> web.ignoring()
@@ -75,8 +76,10 @@ public class SecurityConfig {
 
         return authenticationProvider;
     }
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
 }

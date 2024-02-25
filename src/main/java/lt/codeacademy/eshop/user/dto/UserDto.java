@@ -13,10 +13,7 @@ import lt.codeacademy.eshop.validation.RepeatPassword;
 @ToString
 @Builder
 @RepeatPassword
-
-
 public class UserDto {
-
     @NotBlank
     private String name;
     @NotBlank
@@ -28,7 +25,6 @@ public class UserDto {
     private String password;
     @NotBlank
     private String repeatPassword;
-
     @NotBlank
     private String zipCode;
     @NotBlank

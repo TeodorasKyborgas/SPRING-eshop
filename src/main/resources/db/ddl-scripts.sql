@@ -16,11 +16,13 @@ CREATE TABLE PRODUCT
     price      decimal(20, 2) NOT NULL,
     amount     int            NOT NULL
 );
+
 CREATE TABLE PRODUCT_PRODUCT_CATEGORIES
 (
     product_id            BIGINT NOT NULL,
     product_categories_id BIGINT NOT NULL
 );
+
 DROP TABLE IF EXISTS users_authorities;
 DROP TABLE IF EXISTS authority;
 DROP TABLE IF EXISTS users;
@@ -32,8 +34,11 @@ CREATE TABLE users
     email        VARCHAR(100) NOT NULL,
     password     VARCHAR(500) NOT NULL,
     zip_code     VARCHAR(10)  NOT NULL,
-    phone_number VARCHAR(12)  NOT NULL
+    phone_number VARCHAR(12)  NOT NULL,
+    CONSTRAINT users_email_key UNIQUE (email),
+    CONSTRAINT users_phone_number_key UNIQUE (phone_number)
 );
+
 CREATE TABLE authority
 (
     id          BIGINT primary key auto_increment,
