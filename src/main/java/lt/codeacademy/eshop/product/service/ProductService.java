@@ -1,7 +1,7 @@
 package lt.codeacademy.eshop.product.service;
 
 import lombok.RequiredArgsConstructor;
-import lt.codeacademy.eshop.product.mappers.ProductMapper;
+import lt.codeacademy.eshop.product.ProductMapper;
 import lt.codeacademy.eshop.product.dao.ProductCategoryRepository;
 import lt.codeacademy.eshop.product.dao.ProductDao;
 import lt.codeacademy.eshop.product.dto.ProductDto;

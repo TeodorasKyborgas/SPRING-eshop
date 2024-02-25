@@ -1,4 +1,4 @@
-package lt.codeacademy.eshop.product.mappers;
+package lt.codeacademy.eshop.product;
 
 import lt.codeacademy.eshop.common.mapper.Mapper;
 import lt.codeacademy.eshop.product.dto.ProductCategoryDto;
