@@ -1,23 +1,23 @@
 INSERT INTO PRODUCT(PRODUCT_ID, NAME, PRICE, AMOUNT)
-VALUES ('260f7043-d0bf-4d99-b143-6ee555685561', 'Limes', 48.0, 79),   -- id: 1
-       ('260f7043-d0bf-4d99-b143-6ee555685560', 'Samsung', 222.0, 3), -- id: 2
-       ('260f7043-d0bf-4d99-b143-6ee555685562', 'Passion fruit', 58.0, 3),
-       ('260f7043-d0bf-4d99-b143-6ee555685563', 'Mulberries', 41.0, 77),
-       ('260f7043-d0bf-4d99-b143-6ee555685564', 'Cumquat', 63.0, 69),
-       ('260f7043-d0bf-4d99-b143-6ee555685565', 'Watermelon', 39.0, 75),
-       ('260f7043-d0bf-4d99-b143-6ee555685566', 'Juniper Berries', 89.0, 86),
-       ('260f7043-d0bf-4d99-b143-6ee555685567', 'Currants', 20.0, 62),
-       ('260f7043-d0bf-4d99-b143-6ee555685568', 'Cherries', 85.0, 90),
-       ('260f7043-d0bf-4d99-b143-6ee555685569', 'Lemon', 77.0, 86),
-       ('260f7043-d0bf-4d99-b143-6ee555685570', 'Dates', 19.0, 59),
-       ('260f7043-d0bf-4d99-b143-6ee555685571', 'Honeydew melon', 49.0, 7),
-       ('260f7043-d0bf-4d99-b143-6ee555685572', 'cumquat', 22.0, 19);
+VALUES ('260f7043-d0bf-4d99-b143-6ee555685561', 'Iphone 12 mini', 299.0, 14),   -- id: 1
+       ('260f7043-d0bf-4d99-b143-6ee555685560', 'Samsung S22', 222.0, 3), -- id: 2
+       ('260f7043-d0bf-4d99-b143-6ee555685562', 'Iphone 14 Pro', 798.99, 5),
+       ('260f7043-d0bf-4d99-b143-6ee555685563', 'Screen protector Samsung S2xx', 14.39, 79),
+       ('260f7043-d0bf-4d99-b143-6ee555685564', 'USB Type C cable', 11.59, 25),
+       ('260f7043-d0bf-4d99-b143-6ee555685565', 'Iphone 15 Pro Max 256 gb', 1147.0, 2),
+       ('260f7043-d0bf-4d99-b143-6ee555685566', 'POCO phone', 1.99, 4),
+       ('260f7043-d0bf-4d99-b143-6ee555685567', 'Lightning cable', 20.0, 42),
+       ('260f7043-d0bf-4d99-b143-6ee555685568', 'Samsung A 23', 85.0, 90),
+       ('260f7043-d0bf-4d99-b143-6ee555685569', 'Screen cleaner', 7.89, 86),
+       ('260f7043-d0bf-4d99-b143-6ee555685570', 'Case Iphone 12', 19.0, 59),
+       ('260f7043-d0bf-4d99-b143-6ee555685571', 'Mano vargas', 0.99, 1),
+       ('260f7043-d0bf-4d99-b143-6ee555685572', 'Iphone 13', 555.0, 4);
 
 insert into PRODUCT_CATEGORY(NAME)
 VALUES ('Phone'),
-       ('Food'),
-       ('Drink'),
-       ('Other');
+       ('Phone part'),
+       ('Cables'),
+       ('Accesories');
 
 insert into PRODUCT_PRODUCT_CATEGORIES(product_id, product_categories_id)
 VALUES (1, 2),
