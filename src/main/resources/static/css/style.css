@@ -1,5 +1,5 @@
 body {
-    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
     color: white;
     min-height: 100vh;
     font-size: calc(5px + 2vmin);
@@ -9,4 +9,16 @@ body {
 }
 body.login {
     background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+}
+
+.centered-content {
+    text-align: center; /* Center inline elements */
+}
+
+.radvila {
+    display: block; /* Ensures image is treated as a block element */
+    margin-left: auto;
+    margin-right: auto;
+    height: 700px;
+    width: 700px;
 }
